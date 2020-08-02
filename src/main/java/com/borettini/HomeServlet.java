@@ -9,8 +9,6 @@ import java.io.PrintWriter;
 
 public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter writer = response.getWriter();
-        writer.println("Hello");
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 }

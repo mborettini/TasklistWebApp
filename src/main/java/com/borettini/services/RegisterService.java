@@ -28,10 +28,10 @@ public class RegisterService {
 
     private static boolean validateUsername(String username) {
         //FIXME validate user already exists, method findByUsername
-        if (username != null && username.isEmpty() == false) {
+        if (username != null && username.isEmpty() == false && UserHolder.findByUsername(username) == true) {
             return true;
         } else {
-            throw new RegistrationException("Username can not be empty!");
+            throw new RegistrationException("Username can not be empty or username already exists!");
         }
     }
 }
